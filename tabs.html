@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>使用Vue来实现选项卡的制作</title>
+		<meta charset="utf-8">
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<style>
+			body{
+		    	font-family:"Microsoft YaHei";
+			}
+		    #tab{
+		        width: 600px;
+		        margin: 0 auto;
+		    }
+		    .tab-tit{
+		        font-size: 0;
+		        width: 600px;
+		    }
+		    .tab-tit a{
+		        display: inline-block;
+		        height: 40px;
+		        line-height: 40px;
+		        font-size: 16px;
+		        width: 25%;
+		        text-align: center;
+		        background: #ccc;
+		        color: #333;
+		        text-decoration: none;
+		    }
+		    .tab-tit .cur{
+		        background: #09f;
+		        color: #fff;
+		    }
+		    .tab-con div{
+		        border: 1px solid #ccc;
+		        height: 400px;
+		    }
+		</style>
+	</head>
+	<body>
+		<div id="tab">
+			<div class="tab-tit">
+				<a href="javascript:;" @click="curId=0" :class="{'cur': curId===0}">Html</a>
+				<a href="javascript:;" @click="curId=1" :class="{'cur':curId===1}">Css</a>
+				<a href="javascript:;" @click="curId=2" :class="{'cur':curId===2}">Javascript</a>
+				<a href="javascript:;" @click="curId=3" :class="{'cur':curId===3}">Vue</a>
+			</div>
+			<div class="tab-con">
+				<div v-show="curId===0">
+					<p>Html</p><br>
+				</div>
+				<div v-show="curId===1">
+					<p>Css</p><br>
+				</div>
+				<div v-show="curId===2">
+					<p>Javascript</p><br>
+				</div>
+				<div v-show="curId===3">
+					<p>Vue</p><br>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			new Vue({
+				el:"#tab",
+				data:{
+					curId:0
+				}
+			})
+		</script>
+	</body>
+</html>
